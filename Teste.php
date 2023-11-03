@@ -46,23 +46,32 @@ while (true) {
 
     if ($jogo == "Mega-Sena") {
         $valor_mega_sena = 4.50;
-    } elseif ($jogo == "Lotofácil") {
-        $valor_mega_sena = 2.50;
-    } elseif ($jogo == "Lotomania") {
-        $valor_mega_sena = 2.50;
-    } elseif ($jogo == "Quina") {
-        $valor_mega_sena = 2.00;
-    }
+        
+        $valor_total = $valor_mega_sena * $numapostas;
 
-    $valor_total = $valor_mega_sena * $numapostas;
+    } elseif ($jogo == "Lotofácil") {
+        $valor_lotofacil = 2.50;
+
+        $valor_total = $valor_lotofacil * $numapostas;
+
+    } elseif ($jogo == "Lotomania") {
+        $valor_lotomania = 2.50;
+
+        $valor_total = $valor_lotomania * $numapostas;
+
+    } elseif ($jogo == "Quina") {
+        $valor_Quina = 2.00;
+
+        $valor_total = $valor_Quina * $numapostas;
+        
+    }
 
     if ($saldo < $valor_total) {
         echo "Saldo insuficiente. Adicione crédito para continuar jogando.\n";
         sleep(1);
         $saldo = readline("Qual valor que você deseja depositar? ");
     } else {
-        $saldo -= $valor_total;
-
+       
         for ($i = 0; $i < $numapostas; $i++) {
             $posicao = $i + 1;
             echo "\n" . $posicao . "° Sorteio: ";
